@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detect fake news articles using AI technology">
+    <title>Fake News Detector AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔍</text></svg>">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-header" role="banner">
+            <div class="header-content">
+                <h1 class="main-heading">
+                    <span class="highlight">Fake News</span> Detector
+                </h1>
+                <p class="tagline">AI-powered news authenticity verification</p>
+            </div>
+        </header>
+
+        <main class="main-content" role="main">
+            <section class="input-section">
+                <div class="container">
+                    <form id="news-form" class="news-form">
+                        <div class="form-group">
+                            <label for="news-text" class="input-label">Enter News Content</label>
+                            <textarea id="news-text" class="news-input" placeholder="Paste the news article text here..." 
+                                      rows="10" required aria-required="true"></textarea>
+                            <div class="input-hint">Minimum 100 characters for better accuracy</div>
+                        </div>
+                        <button type="submit" id="analyze-btn" class="analyze-button">
+                            <span class="button-text">Analyze Article</span>
+                            <span class="button-icon" aria-hidden="true">🔍</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="result-section" class="result-section hidden" aria-live="polite">
+                <div class="container">
+                    <div class="result-card">
+                        <h2 class="result-heading">Analysis Result</h2>
+                        <div class="result-content">
+                            <div class="result-meta">
+                                <div class="result-item">
+                                    <span class="result-label">Prediction:</span>
+                                    <span id="prediction" class="result-value">-</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="result-label">Confidence:</span>
+                                    <span id="confidence" class="result-value">-</span>
+                                </div>
+                            </div>
+                            <div id="result-details" class="result-details hidden">
+                                <h3>About This Result</h3>
+                                <p>This analysis is based on our AI model trained to detect patterns in fake and real news articles.</p>
+                            </div>
+                        </div>
+                        <div class="loader-container hidden">
+                            <div class="loader" aria-label="Analyzing content"></div>
+                            <p class="loader-text">Analyzing article...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="page-footer" role="contentinfo">
+            <div class="container">
+                <div class="footer-content">
+                    <p class="disclaimer">
+                        <strong>Note:</strong> This tool provides probabilistic predictions based on AI analysis and should be used as one of multiple verification methods.
+                    </p>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <span class="divider">|</span>
+                        <a href="#" class="footer-link">How It Works</a>
+                        <span class="divider">|</span>
+                        <a href="#" class="footer-link">API</a>
+                    </div>
+                    <p class="copyright">&copy; 2025 Fake News Detector AI</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
